@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { userBasicDetails } from './types/userBasicDetails';
+import { UserBasicDetails } from './types/userBasicDetails';
 import { UserBasicDetailsService } from './services/user-basic-details.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { UserBasicDetailsService } from './services/user-basic-details.service';
 export class AppComponent {
 
   public searchTerm = '';
-  public userData: Observable<userBasicDetails>;
+  public userData: Observable<UserBasicDetails>;
 
   constructor(private userBasicDetailsService: UserBasicDetailsService){}
 

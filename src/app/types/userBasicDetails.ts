@@ -1,14 +1,15 @@
-export type userBasicDetails = {
+export type UserBasicDetails = {
     username: string;
     id: number;
     avatar_url: string;
     html_url: string;
-    name: string;
-    company: string;
-    blog: string;
-    location: any;
-    email: string;
-    hireable: any;
+    name?: string;
+    company?: string;
+    blog?: string;
+    bio?: string;
+    location?: string;
+    email?: string;
+    hireable: boolean;
     num_of_public_repos: number;
     num_of_followers: number;
     num_of_following: number;
