@@ -1,3 +1,16 @@
 <div>
   <h1>Github Profile Viewer</h1>
+  <br />
+  <label>UserName:</label>
+  <input type="text" [(ngModel)]="searchTerm"/>
+  <button (click)="onClickHandler()">View Data</button>
+  <br />
+  <br />
+  <br />
+  <div *ngIf="userData | async">
+    {{ userData | async | json }}
+  </div>
+  <div *ngIf="!(userData | async)">
+    <p>No data available!</p>
+  </div>
 </div>
