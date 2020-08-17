@@ -20,8 +20,7 @@ export class UserBasicDetailsService {
           id: json.id,
           avatar_url: json.avatar_url,
           html_url: json.html_url,
-          location: json.location,
-          hireable: json.hireable,
+          hireable: !!json.hireable,
           num_of_public_repos: json.public_repos,
           num_of_followers: json.followers,
           num_of_following: json.following,
@@ -30,6 +29,7 @@ export class UserBasicDetailsService {
         };
         if (json.name){ userBasicDetails['name'] = json.name; }
         if (json.company){ userBasicDetails['company'] = json.company; }
+        if (json.location){ userBasicDetails['location'] = json.location; }
         if (json.blog){ userBasicDetails['blog'] = json.blog; }
         if (json.bio){ userBasicDetails['bio'] = json.bio; }
         if (json.email){ userBasicDetails['email'] = json.email; }
