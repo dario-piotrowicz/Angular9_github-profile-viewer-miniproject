@@ -1,16 +1,16 @@
 <div>
   <h1>Github Profile Viewer</h1>
   <br />
-  <label>UserName:</label>
-  <input type="text" [(ngModel)]="searchTerm"/>
-  <button (click)="onClickHandler()">View Data</button>
+  <label>Query:</label>
+  <input type="text" [(ngModel)]="query"/>
+  <button (click)="onClickHandler()">Search</button>
   <br />
   <br />
   <br />
-  <div *ngIf="userData | async">
-    {{ userData | async | json }}
+  <div *ngIf="usersData | async">
+    <app-users-buttons-container [usersData]="usersData"></app-users-buttons-container>
   </div>
-  <div *ngIf="!(userData | async)">
-    <p>No data available!</p>
+  <div *ngIf="!(usersData | async)">
+    <p>No result available!</p>
   </div>
 </div>

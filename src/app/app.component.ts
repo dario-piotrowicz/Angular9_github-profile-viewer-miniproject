@@ -10,13 +10,13 @@ import { UserBasicDetailsService } from './services/user-basic-details.service';
 })
 export class AppComponent {
 
-  public searchTerm = '';
-  public userData: Observable<UserBasicDetails>;
+  public query = '';
+  public usersData: Observable<UserBasicDetails[]>;
 
   constructor(private userBasicDetailsService: UserBasicDetailsService){}
 
   public onClickHandler(): void {
-    this.userData = this.userBasicDetailsService.fetchUserData(this.searchTerm);
+    this.usersData = this.userBasicDetailsService.searchForUsers(this.query);
   }
 
 

@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { UsersButtonsContainerComponent } from './components/users-buttons-container/users-buttons-container.component';
+import { UserButtonComponent } from './components/users-buttons-container/user-button/user-button.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersButtonsContainerComponent,
+    UserButtonComponent
   ],
   imports: [
     BrowserModule,
