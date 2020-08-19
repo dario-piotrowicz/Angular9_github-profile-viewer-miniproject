@@ -1,4 +1,12 @@
 <div class="user-button">
   <img [src]="userData.avatar_url" />
-  <p>{{ userData.username }}</p>
+  <div class="details">
+    <p>
+      <strong>{{ userData.username }}</strong>
+    </p>
+    <p>
+      url:
+      <a [href]="userData.html_url" target="_blank">{{ userData.html_url }}</a>
+    </p>
+  </div>
 </div>
