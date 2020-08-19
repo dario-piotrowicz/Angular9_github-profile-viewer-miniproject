@@ -5,15 +5,12 @@ import { UserBasicDetails } from 'src/app/types/userBasicDetails';
 @Component({
   selector: 'app-users-buttons-container',
   templateUrl: './users-buttons-container.component.html',
-  styleUrls: ['./users-buttons-container.component.sass']
+  styleUrls: ['./users-buttons-container.component.sass'],
 })
 export class UsersButtonsContainerComponent implements OnInit {
-
   @Input() usersData: Observable<UserBasicDetails[]>;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

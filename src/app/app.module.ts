@@ -11,14 +11,10 @@ import { UserButtonComponent } from './components/users-buttons-container/user-b
   declarations: [
     AppComponent,
     UsersButtonsContainerComponent,
-    UserButtonComponent
+    UserButtonComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

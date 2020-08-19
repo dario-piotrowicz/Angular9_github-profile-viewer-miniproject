@@ -2,13 +2,15 @@
   <h1>Github Profile Viewer</h1>
   <br />
   <label>Query:</label>
-  <input type="text" [(ngModel)]="query"/>
+  <input type="text" [(ngModel)]="query" />
   <button (click)="onClickHandler()">Search</button>
   <br />
   <br />
   <br />
   <div *ngIf="usersData | async">
-    <app-users-buttons-container [usersData]="usersData"></app-users-buttons-container>
+    <app-users-buttons-container
+      [usersData]="usersData"
+    ></app-users-buttons-container>
   </div>
   <div *ngIf="!(usersData | async)">
     <p>No result available!</p>
