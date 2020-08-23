@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { ComponentsModule } from '../components/components.module';
 import { ServicesModule } from '../services/services.module';
 
 import { HomeComponent } from './home/home.component';
-
-import { UsersButtonsContainerModule } from '../components/users-buttons-container/users-buttons-container.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -15,8 +14,8 @@ import { UsersButtonsContainerModule } from '../components/users-buttons-contain
     CommonModule,
     FormsModule,
     BrowserModule,
+    ComponentsModule,
     ServicesModule,
-    UsersButtonsContainerModule,
   ],
   exports: [HomeComponent],
 })
