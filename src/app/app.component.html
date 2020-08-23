@@ -1,18 +1,4 @@
 <div>
   <h1>Github Profile Viewer</h1>
-  <br />
-  <label>Query:</label>
-  <input type="text" [(ngModel)]="query" (keyup.enter)="searchUsers()" />
-  <button (click)="searchUsers()">Search</button>
-  <br />
-  <br />
-  <br />
-  <div *ngIf="usersData | async">
-    <app-users-buttons-container
-      [usersData]="usersData"
-    ></app-users-buttons-container>
-  </div>
-  <div *ngIf="!(usersData | async)">
-    <p>No result available!</p>
-  </div>
+  <router-outlet></router-outlet>
 </div>

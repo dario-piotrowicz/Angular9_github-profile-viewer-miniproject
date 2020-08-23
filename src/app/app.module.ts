@@ -1,19 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { UsersButtonsContainerModule } from './components/users-buttons-container/users-buttons-container.module';
-
-const angularImports = [BrowserModule, FormsModule, HttpClientModule];
-
-const projectImports = [UsersButtonsContainerModule];
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [...angularImports, ...projectImports],
+  imports: [HttpClientModule, AppRoutingModule, PagesModule],
   providers: [],
   bootstrap: [AppComponent],
 })
