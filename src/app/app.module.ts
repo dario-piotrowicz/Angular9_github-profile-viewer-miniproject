@@ -4,16 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { UsersButtonsContainerComponent } from './components/users-buttons-container/users-buttons-container.component';
-import { UserButtonComponent } from './components/users-buttons-container/user-button/user-button.component';
+
+import { UsersButtonsContainerModule } from './components/users-buttons-container/users-buttons-container.module';
+
+const angularImports = [BrowserModule, FormsModule, HttpClientModule];
+
+const projectImports = [UsersButtonsContainerModule];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UsersButtonsContainerComponent,
-    UserButtonComponent,
-  ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  declarations: [AppComponent],
+  imports: [...angularImports, ...projectImports],
   providers: [],
   bootstrap: [AppComponent],
 })
