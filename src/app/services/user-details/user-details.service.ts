@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserBasicDetails, UserSearchDetails } from '../types/userBasicDetails';
+import {
+  UserBasicDetails,
+  UserSearchDetails,
+} from '../../types/userBasicDetails';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class UserBasicDetailsService {
+@Injectable()
+export class UserDetailsService {
   constructor(private httpClient: HttpClient) {}
 
   public searchForUsers(query: string): Observable<UserSearchDetails[]> {
