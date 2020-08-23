@@ -1,3 +1,10 @@
+export type UserSearchDetails = {
+  username: string;
+  id: number;
+  avatar_url: string;
+  html_url: string;
+};
+
 export type UserBasicDetails = {
   username: string;
   id: number;

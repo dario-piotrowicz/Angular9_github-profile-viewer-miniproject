@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserBasicDetails } from '../types/userBasicDetails';
+import { UserBasicDetails, UserSearchDetails } from '../types/userBasicDetails';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,13 +10,11 @@ import { map } from 'rxjs/operators';
 export class UserBasicDetailsService {
   constructor(private httpClient: HttpClient) {}
 
-  public searchForUsers(query: string): Observable<UserBasicDetails[]> {
+  public searchForUsers(query: string): Observable<UserSearchDetails[]> {
     return this.httpClient
       .get(`https://api.github.com/search/users?q=${query}&per_page=10000`)
       .pipe(
-        map((response: any) => {
-          return response.items.map(this.converJsonToUserBasicDetails);
-        })
+        map((res: any) => res.items.map(this.converJsonToUserSearchDetails))
       );
   }
 
@@ -24,6 +22,15 @@ export class UserBasicDetailsService {
     return this.httpClient
       .get(`https://api.github.com/users/${username}`)
       .pipe(map(this.converJsonToUserBasicDetails));
+  }
+
+  private converJsonToUserSearchDetails(json: any): UserSearchDetails {
+    return {
+      username: json.login,
+      id: json.id,
+      avatar_url: json.avatar_url,
+      html_url: json.html_url,
+    };
   }
 
   private converJsonToUserBasicDetails(json: any): UserBasicDetails {

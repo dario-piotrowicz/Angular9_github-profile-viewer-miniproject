@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserBasicDetails } from 'src/app/types/userBasicDetails';
+import { UserSearchDetails } from 'src/app/types/userBasicDetails';
 
 @Component({
   selector: 'app-users-buttons-container',
@@ -8,7 +8,7 @@ import { UserBasicDetails } from 'src/app/types/userBasicDetails';
   styleUrls: ['./users-buttons-container.component.sass'],
 })
 export class UsersButtonsContainerComponent implements OnInit {
-  @Input() usersData: Observable<UserBasicDetails[]>;
+  @Input() usersData: Observable<UserSearchDetails[]>;
 
   constructor() {}
 

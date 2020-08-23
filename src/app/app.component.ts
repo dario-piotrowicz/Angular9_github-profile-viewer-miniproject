@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserBasicDetails } from './types/userBasicDetails';
+import { UserSearchDetails } from './types/userBasicDetails';
 import { UserBasicDetailsService } from './services/user-basic-details.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserBasicDetailsService } from './services/user-basic-details.service';
 })
 export class AppComponent {
   public query = '';
-  public usersData: Observable<UserBasicDetails[]>;
+  public usersData: Observable<UserSearchDetails[]>;
 
   constructor(private userBasicDetailsService: UserBasicDetailsService) {}
 
