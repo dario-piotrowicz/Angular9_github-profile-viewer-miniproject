@@ -14,7 +14,7 @@ export class AppComponent {
 
   constructor(private userBasicDetailsService: UserBasicDetailsService) {}
 
-  public onClickHandler(): void {
+  public searchUsers(): void {
     this.usersData = this.userBasicDetailsService.searchForUsers(this.query);
   }
 }
