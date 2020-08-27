@@ -1,12 +1,8 @@
-<div class="user-button">
+<button class="user-button" (click)="navigateToUserDetailsPage()">
   <img [src]="userData.avatar_url" />
   <div class="details">
     <p>
-      <strong>{{ userData.username }}</strong>
-    </p>
-    <p>
-      url:
-      <a [href]="userData.html_url" target="_blank">{{ userData.html_url }}</a>
+      {{ userData.username }}
     </p>
   </div>
-</div>
+</button>

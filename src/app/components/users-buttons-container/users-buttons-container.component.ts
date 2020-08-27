@@ -8,7 +8,7 @@ import { UserSearchDetails } from 'src/app/types/userBasicDetails';
   styleUrls: ['./users-buttons-container.component.sass'],
 })
 export class UsersButtonsContainerComponent implements OnInit {
-  @Input() usersData: Observable<UserSearchDetails[]>;
+  @Input() usersData: UserSearchDetails[];
 
   constructor() {}
 

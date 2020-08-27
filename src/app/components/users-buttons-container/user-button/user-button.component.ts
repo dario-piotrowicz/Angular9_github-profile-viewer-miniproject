@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { UserBasicDetails } from 'src/app/types/userBasicDetails';
 
 @Component({
@@ -6,12 +8,12 @@ import { UserBasicDetails } from 'src/app/types/userBasicDetails';
   templateUrl: './user-button.component.html',
   styleUrls: ['./user-button.component.sass'],
 })
-export class UserButtonComponent implements OnInit {
+export class UserButtonComponent {
   @Input() userData: UserBasicDetails;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    console.log({ userData: this.userData });
+  public navigateToUserDetailsPage(): void {
+    this.router.navigateByUrl(`user/${this.userData.username}`);
   }
 }
