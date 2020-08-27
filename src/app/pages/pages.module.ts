@@ -6,10 +6,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '../components/components.module';
 import { ServicesModule } from '../services/services.module';
 
-import { HomeComponent } from './home/home.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { UserDetailsPageComponent } from './user-details-page/user-details-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [
+    HomePageComponent,
+    UserDetailsPageComponent,
+    PageNotFoundComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,6 +23,6 @@ import { HomeComponent } from './home/home.component';
     ComponentsModule,
     ServicesModule,
   ],
-  exports: [HomeComponent],
+  exports: [HomePageComponent, UserDetailsPageComponent, PageNotFoundComponent],
 })
 export class PagesModule {}

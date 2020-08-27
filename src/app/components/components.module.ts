@@ -3,10 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './header/header.component';
 import { UsersButtonsContainerModule } from './users-buttons-container/users-buttons-container.module';
+import { UserDetailsViewerComponent } from './user-details-viewer/user-details-viewer.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, UserDetailsViewerComponent],
   imports: [CommonModule, UsersButtonsContainerModule],
-  exports: [HeaderComponent, UsersButtonsContainerModule],
+  exports: [
+    HeaderComponent,
+    UsersButtonsContainerModule,
+    UserDetailsViewerComponent,
+  ],
 })
 export class ComponentsModule {}

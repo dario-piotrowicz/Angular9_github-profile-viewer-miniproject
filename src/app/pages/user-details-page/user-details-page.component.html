@@ -1,0 +1,11 @@
+<div>
+  <div *ngIf="loadingDetails">
+    <h3>LOADING...</h3>
+  </div>
+  <ng-container *ngIf="userData$ | async as userData">
+    <app-user-details-viewer
+      *ngIf="!loadingDetails"
+      [userDetails]="userData"
+    ></app-user-details-viewer>
+  </ng-container>
+</div>
