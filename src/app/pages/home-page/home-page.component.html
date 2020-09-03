@@ -1,14 +1,15 @@
 <div>
-  <label>Query:</label>
-  <input
-    class="search"
-    type="text"
-    [(ngModel)]="query"
-    (keyup.enter)="searchUsers()"
-  />
-  <button [disabled]="!query || loadingResults" (click)="searchUsers()">
-    Search
-  </button>
+  <div class="search-section">
+    <input
+      type="text"
+      [(ngModel)]="query"
+      (keyup.enter)="searchUsers()"
+      maxlength="35"
+    />
+    <button [disabled]="!query || loadingResults" (click)="searchUsers()">
+      Search
+    </button>
+  </div>
   <ng-container *ngIf="usersData$ | async as usersData">
     <app-users-buttons-container
       *ngIf="!loadingResults"
