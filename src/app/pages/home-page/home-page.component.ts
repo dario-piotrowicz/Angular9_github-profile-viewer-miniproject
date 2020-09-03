@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable, of, timer } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { UserSearchDetails } from 'src/app/types/userBasicDetails';
 import { UserDetailsService } from 'src/app/services/user-details/user-details.service';
-import { switchMap, tap, finalize, delay } from 'rxjs/operators';
+import { switchMap, finalize, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
