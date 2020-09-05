@@ -1,3 +1,5 @@
+import { Repo } from './repositories';
+
 export type UserSearchDetails = {
   username: string;
   id: number;
@@ -22,4 +24,8 @@ export type UserBasicDetails = {
   num_of_following: number;
   created_at: Date;
   updated_at: Date;
+};
+
+export type UserData = UserBasicDetails & {
+  repos: Repo[];
 };

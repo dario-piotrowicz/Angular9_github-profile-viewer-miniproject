@@ -1,11 +1,16 @@
 <div class="user-details-viewer">
-  <h2 class="username">{{ userDetails.username }}</h2>
-  <img class="avatar" [src]="userDetails.avatar_url" />
-  <a target="_blank" [href]="userDetails.html_url"
-    >url: {{ userDetails.html_url }}</a
-  >
-  <p *ngIf="userDetails.name">name: {{ userDetails.name }}</p>
-  <p *ngIf="userDetails.location">location: {{ userDetails.location }}</p>
-  <p>{{ userDetails.hireable ? 'hireable' : 'not-hireable' }}</p>
-  <p>Number of public repos: {{ userDetails.num_of_public_repos }}</p>
+  <h2 class="username">{{ userData.username }}</h2>
+  <img class="avatar" [src]="userData.avatar_url" />
+  <a target="_blank" [href]="userData.html_url">url: {{ userData.html_url }}</a>
+  <p *ngIf="userData.name">name: {{ userData.name }}</p>
+  <p *ngIf="userData.location">location: {{ userData.location }}</p>
+  <p>{{ userData.hireable ? 'hireable' : 'not-hireable' }}</p>
+  <p>Number of public repos: {{ userData.num_of_public_repos }}</p>
+  <br />
+  <br />
+  <br />
+  <br />
+  <p>
+    {{ userData.repos | json }}
+  </p>
 </div>

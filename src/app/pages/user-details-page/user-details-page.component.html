@@ -5,7 +5,7 @@
   <ng-container *ngIf="userData$ | async as userData">
     <app-user-details-viewer
       *ngIf="!loadingDetails"
-      [userDetails]="userData"
+      [userData]="userData"
     ></app-user-details-viewer>
   </ng-container>
 </div>

@@ -3,13 +3,19 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {
   UserBasicDetails,
   UserSearchDetails,
+  UserData,
 } from '../../types/userBasicDetails';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, forkJoin } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { Repo } from 'src/app/types/repositories';
+import { ReposService } from '../repos/repos.service';
 
 @Injectable()
 export class UserDetailsService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private reposService: ReposService
+  ) {}
 
   public searchForUsers(query: string): Observable<UserSearchDetails[]> {
     return this.httpClient
@@ -28,10 +34,18 @@ export class UserDetailsService {
       );
   }
 
-  public fetchUserData(username: string): Observable<UserBasicDetails> {
-    return this.httpClient
-      .get(`https://api.github.com/users/${username}`)
-      .pipe(map(this.converJsonToUserBasicDetails));
+  public fetchUserData(username: string): Observable<UserData> {
+    return forkJoin(
+      this.httpClient
+        .get(`https://api.github.com/users/${username}`)
+        .pipe(map(this.converJsonToUserBasicDetails)),
+      this.reposService.getUserPublicRepos(username)
+    ).pipe(
+      map(([userDetails, repos]: [UserBasicDetails, Repo[]]) => {
+        console.log({ repos });
+        return { ...userDetails, repos };
+      })
+    );
   }
 
   private converJsonToUserSearchDetails(json: any): UserSearchDetails {
