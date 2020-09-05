@@ -1,14 +1,25 @@
 <div>
   <div class="search-section">
-    <input
-      type="text"
-      [(ngModel)]="query"
-      (keyup.enter)="searchUsers()"
-      maxlength="35"
-    />
-    <button [disabled]="!query || loadingResults" (click)="searchUsers()">
-      Search
-    </button>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="query"
+        (keyup.enter)="searchUsers()"
+        maxlength="35"
+      />
+      <button
+        [disabled]="!query || loadingResults || searchRateLimitErrorOccurred"
+        (click)="searchUsers()"
+      >
+        Search
+      </button>
+    </div>
+    <span
+      class="search-rate-limite-error-text"
+      *ngIf="searchRateLimitErrorOccurred"
+    >
+      Max 10 searches per minute, please slow down
+    </span>
   </div>
   <ng-container *ngIf="usersData$ | async as usersData">
     <app-users-buttons-container
@@ -18,6 +29,12 @@
       <p>No users found matching your query</p>
     </app-users-buttons-container>
   </ng-container>
+  <div
+    class="search-rate-limit-error-container"
+    *ngIf="!loadingResults && searchRateLimitErrorOccurred"
+  >
+    <p>No results (github search limit exceeded)</p>
+  </div>
   <div *ngIf="loadingResults">
     <h3>Loading...</h3>
   </div>

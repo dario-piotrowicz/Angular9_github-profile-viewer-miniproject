@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {
   UserBasicDetails,
   UserSearchDetails,
 } from '../../types/userBasicDetails';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class UserDetailsService {
@@ -15,6 +15,15 @@ export class UserDetailsService {
     return this.httpClient
       .get(`https://api.github.com/search/users?q=${query}&per_page=10000`)
       .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (
+            error.status === 403 &&
+            error.statusText === 'rate limit exceeded'
+          ) {
+            return throwError({ type: 'rate-limit' });
+          }
+          return of({ items: [] });
+        }),
         map((res: any) => res.items.map(this.converJsonToUserSearchDetails))
       );
   }
