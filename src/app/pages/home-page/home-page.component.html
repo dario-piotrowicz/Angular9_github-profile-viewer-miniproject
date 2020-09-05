@@ -14,11 +14,10 @@
     <app-users-buttons-container
       *ngIf="!loadingResults"
       [usersData]="usersData"
-    ></app-users-buttons-container>
+    >
+      <p>No users found matching your query</p>
+    </app-users-buttons-container>
   </ng-container>
-  <div *ngIf="!loadingResults && !usersData$">
-    <p>No result available!</p>
-  </div>
   <div *ngIf="loadingResults">
     <h3>Loading...</h3>
   </div>

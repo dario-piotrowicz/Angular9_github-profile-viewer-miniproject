@@ -1,6 +1,8 @@
-<div class="users-buttons-container">
-  <div *ngFor="let userData of usersData" class="user-btn-container">
-    <app-user-button [userData]="userData"></app-user-button>
-  </div>
-  <div></div>
+<div class="users-buttons-container" *ngIf="usersData">
+  <ng-container *ngIf="usersData.length > 0">
+    <div *ngFor="let userData of usersData" class="user-btn-container">
+      <app-user-button [userData]="userData"></app-user-button>
+    </div>
+  </ng-container>
+  <ng-content *ngIf="usersData.length === 0"></ng-content>
 </div>
