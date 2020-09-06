@@ -25,7 +25,7 @@ export class ReposService {
       pushed_at: new Date(json.pushed_at),
       is_a_fork: !!json.fork,
       name: json.name,
-      url: json.url,
+      url: json.html_url,
       id: json.number,
       num_of_watchers: json.watchers_count,
       num_of_forks: json.forks_count,
@@ -34,7 +34,11 @@ export class ReposService {
     };
 
     if (json.homepage) {
-      repo['homepage'] = json.homepage;
+      repo.homepage = json.homepage;
+    }
+
+    if (json.description) {
+      repo.description = json.description;
     }
     return repo;
   }

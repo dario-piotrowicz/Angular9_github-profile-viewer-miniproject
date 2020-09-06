@@ -13,4 +13,5 @@ export type Repo = {
   num_of_forks: number;
   language: string;
   size: number;
+  description?: string;
 };

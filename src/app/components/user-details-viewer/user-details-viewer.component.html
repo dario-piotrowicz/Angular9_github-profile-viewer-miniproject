@@ -6,11 +6,8 @@
   <p *ngIf="userData.location">location: {{ userData.location }}</p>
   <p>{{ userData.hireable ? 'hireable' : 'not-hireable' }}</p>
   <p>Number of public repos: {{ userData.num_of_public_repos }}</p>
-  <br />
-  <br />
-  <br />
-  <br />
-  <p>
-    {{ userData.repos | json }}
-  </p>
+  <app-repos-list
+    [repos]="userData.repos"
+    [listContainsAllrepos]="userData.num_of_public_repos <= 100"
+  ></app-repos-list>
 </div>
