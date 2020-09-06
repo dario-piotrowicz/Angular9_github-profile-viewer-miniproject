@@ -26,7 +26,7 @@ export class ReposService {
       is_a_fork: !!json.fork,
       name: json.name,
       url: json.html_url,
-      id: json.number,
+      id: json.id,
       num_of_watchers: json.watchers_count,
       num_of_forks: json.forks_count,
       language: json.language,
