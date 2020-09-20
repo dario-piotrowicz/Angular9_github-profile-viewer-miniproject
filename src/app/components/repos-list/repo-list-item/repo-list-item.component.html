@@ -1,4 +1,7 @@
 <div class="repo-list-item">
+  <div *ngIf="repo.is_a_fork" class="fork-icon">
+    <div class="fa-icon"><fa-icon [icon]="forkFaIcon"></fa-icon></div>
+  </div>
   <p class="title">{{ repo.name }}</p>
   <p *ngIf="repo.description" class="description">{{ repo.description }}</p>
   <p class="language">{{ repo.language }}</p>
@@ -10,8 +13,6 @@
     homepage url:
     <a [href]="repo.homepage" target="_blank">{{ repo.homepage }}</a>
   </p>
-  <p *ngIf="repo.is_a_fork">Is a Fork</p>
-  <p *ngIf="!repo.is_a_fork">Is not a Fork</p>
   <p>Created at: {{ repo.created_at | date: dateFormat }}</p>
   <p>Last Pushed at: {{ repo.pushed_at | date: dateFormat }}</p>
   <p>Last Updated at: {{ repo.updated_at | date: dateFormat }}</p>
