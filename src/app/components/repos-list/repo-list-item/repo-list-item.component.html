@@ -14,7 +14,26 @@
     <a [href]="repo.homepage" target="_blank">{{ repo.homepage }}</a>
   </p>
   <p>Size: {{ repo.size_in_KB | kbDisplay }}</p>
-  <p *ngIf="repo.language">Language: {{ repo.language }}</p>
+  <p *ngIf="repo.language && (!reposLanguages || reposLanguages.length === 1)">
+    Main Language: {{ repo.language }}
+    <span
+      *ngIf="!reposLanguages && repo.languages_url"
+      class="load_languages"
+      (click)="loadLanguages()"
+      ><fa-icon [icon]="infoCicleFaIcon"></fa-icon
+    ></span>
+    <span *ngIf="reposLanguages && reposLanguages.length === 1">
+      (no more languages)
+    </span>
+  </p>
+  <div *ngIf="reposLanguages && reposLanguages.length > 1">
+    <p>Languages:</p>
+    <ul>
+      <li *ngFor="let lang of reposLanguages" class="language">
+        {{ lang }}
+      </li>
+    </ul>
+  </div>
   <p>Created at: {{ repo.created_at | date: dateFormat }}</p>
   <p>Last Pushed at: {{ repo.pushed_at | date: dateFormat }}</p>
   <p>Last Updated at: {{ repo.updated_at | date: dateFormat }}</p>

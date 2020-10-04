@@ -43,6 +43,21 @@ export class ReposService {
     if (json.language) {
       repo.language = json.language;
     }
+
+    if (json.languages_url) {
+      repo.languages_url = json.languages_url;
+    }
+
     return repo;
+  }
+
+  public getReposLanguages(url: string): Observable<string[]> {
+    return this.httpClient
+      .get(url)
+      .pipe(map((languages: any) => this.convertLanguagesJson(languages)));
+  }
+
+  private convertLanguagesJson(json: any): string[] {
+    return Object.keys(json);
   }
 }
