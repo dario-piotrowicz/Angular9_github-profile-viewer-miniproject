@@ -29,7 +29,6 @@ export class ReposService {
       id: json.id,
       num_of_watchers: json.watchers_count,
       num_of_forks: json.forks_count,
-      language: json.language,
       size_in_KB: json.size,
     };
 
@@ -39,6 +38,10 @@ export class ReposService {
 
     if (json.description) {
       repo.description = json.description;
+    }
+
+    if (json.language) {
+      repo.language = json.language;
     }
     return repo;
   }
