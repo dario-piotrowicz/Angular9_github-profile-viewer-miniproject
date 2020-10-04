@@ -12,6 +12,6 @@ export type Repo = {
   num_of_watchers: number;
   num_of_forks: number;
   language: string;
-  size: number;
+  size_in_KB: number;
   description?: string;
 };

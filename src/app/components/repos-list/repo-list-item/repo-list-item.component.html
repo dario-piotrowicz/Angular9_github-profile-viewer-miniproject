@@ -13,6 +13,7 @@
     homepage url:
     <a [href]="repo.homepage" target="_blank">{{ repo.homepage }}</a>
   </p>
+  <p>Size: {{ repo.size_in_KB | kbDisplay }}</p>
   <p>Created at: {{ repo.created_at | date: dateFormat }}</p>
   <p>Last Pushed at: {{ repo.pushed_at | date: dateFormat }}</p>
   <p>Last Updated at: {{ repo.updated_at | date: dateFormat }}</p>

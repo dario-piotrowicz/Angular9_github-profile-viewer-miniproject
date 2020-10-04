@@ -30,7 +30,7 @@ export class ReposService {
       num_of_watchers: json.watchers_count,
       num_of_forks: json.forks_count,
       language: json.language,
-      size: json.size,
+      size_in_KB: json.size,
     };
 
     if (json.homepage) {
