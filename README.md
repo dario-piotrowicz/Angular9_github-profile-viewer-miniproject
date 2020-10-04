@@ -1,6 +1,6 @@
 # Angular9 Github Profile Viewer Miniproject
 
-This is a simple project I am making in order to exercise angular programming.
+This is a simple project I am making in order to exercise in angular programming.
 
 In particular RXJS, libary with with I don't have too much experience with.
 
