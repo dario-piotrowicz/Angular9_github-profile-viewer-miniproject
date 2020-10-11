@@ -11,3 +11,6 @@ I will try to use RXJS as much as possible and handle the data asynchronously us
 For the project I thought of making some sort of visualization app which makes calls to [GitHub REST API](https://docs.github.com/en/rest) and allows you to retrieve data specific to some user (like counting how many repositories the user has, how many languages and so forth, basically I will make up what to display as I code the app and read throught the API's documentation).
 
 I am not sure if the app will be useful in any sort of practical way, but I thought that this sort of app, highly dependent on http calls would be suitable for exercising with RXJS operators.
+
+The app is deployed at:\
+[https://angular-github-viewer.netlify.app/](https://angular-github-viewer.netlify.app/)
