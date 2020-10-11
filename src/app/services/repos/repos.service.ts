@@ -60,16 +60,18 @@ export class ReposService {
       .map((lang) => json[lang])
       .reduce((acc, curr) => acc + curr);
 
-    return Object.keys(json).map((lang) => {
-      const actualPercentage: number = (json[lang] / sum) * 100;
-      const percentageStrMax2Decimals = actualPercentage
-        .toFixed(2)
-        .replace(/\.?0+$/, '');
-      const percentage = parseFloat(percentageStrMax2Decimals);
-      return {
-        name: lang,
-        percentage,
-      };
-    });
+    return Object.keys(json)
+      .map((lang) => {
+        const actualPercentage: number = (json[lang] / sum) * 100;
+        const percentageStrMax2Decimals = actualPercentage
+          .toFixed(2)
+          .replace(/\.?0+$/, '');
+        const percentage = parseFloat(percentageStrMax2Decimals);
+        return {
+          name: lang,
+          percentage,
+        };
+      })
+      .sort((langA, langB) => langB.percentage - langA.percentage);
   }
 }
