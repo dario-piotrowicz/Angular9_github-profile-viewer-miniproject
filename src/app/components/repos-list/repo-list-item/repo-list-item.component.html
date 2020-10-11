@@ -27,10 +27,11 @@
     </span>
   </p>
   <div *ngIf="reposLanguages && reposLanguages.length > 1">
-    <p>Languages:</p>
-    <ul>
+    <p class="languages-text">Languages:</p>
+    <ul class="languages">
       <li *ngFor="let lang of reposLanguages" class="language">
-        {{ lang.name }} [ {{ lang.percentage }}% ]
+        <span class="name">{{ lang.name }}</span
+        ><span class="percentage">[ {{ lang.percentage }}% ]</span>
       </li>
     </ul>
   </div>
