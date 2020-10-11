@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy } from '@angular/core';
-import { Repo } from 'src/app/types/repositories';
+import { Repo, Language } from 'src/app/types/repositories';
 import { faCodeBranch, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { ReposService } from 'src/app/services/repos/repos.service';
 import { Subject } from 'rxjs';
@@ -13,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 export class RepoListItemComponent implements OnDestroy {
   @Input() repo: Repo;
 
-  public reposLanguages: string[] = null;
+  public reposLanguages: Language[] = null;
 
   public readonly dateFormat = 'MMM dd yyyy - HH:mm';
 
@@ -34,7 +34,7 @@ export class RepoListItemComponent implements OnDestroy {
       this.reposService
         .getReposLanguages(this.repo.languages_url)
         .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe((languages: string[]) => (this.reposLanguages = languages));
+        .subscribe((languages) => (this.reposLanguages = languages));
     }
   }
 }

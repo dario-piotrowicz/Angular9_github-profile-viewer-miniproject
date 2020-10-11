@@ -30,7 +30,7 @@
     <p>Languages:</p>
     <ul>
       <li *ngFor="let lang of reposLanguages" class="language">
-        {{ lang }}
+        {{ lang.name }} [ {{ lang.percentage }}% ]
       </li>
     </ul>
   </div>

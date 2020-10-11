@@ -1,3 +1,8 @@
+export type Language = {
+  name: string;
+  percentage: number;
+};
+
 export type Repo = {
   archived: boolean;
   disabled: boolean;

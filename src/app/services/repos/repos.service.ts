@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Repo } from 'src/app/types/repositories';
+import { Repo, Language } from 'src/app/types/repositories';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -51,13 +51,25 @@ export class ReposService {
     return repo;
   }
 
-  public getReposLanguages(url: string): Observable<string[]> {
-    return this.httpClient
-      .get(url)
-      .pipe(map((languages: any) => this.convertLanguagesJson(languages)));
+  public getReposLanguages(url: string): Observable<Language[]> {
+    return this.httpClient.get(url).pipe(map(this.convertLanguagesJson));
   }
 
-  private convertLanguagesJson(json: any): string[] {
-    return Object.keys(json);
+  private convertLanguagesJson(json: any): Language[] {
+    const sum: number = Object.keys(json)
+      .map((lang) => json[lang])
+      .reduce((acc, curr) => acc + curr);
+
+    return Object.keys(json).map((lang) => {
+      const actualPercentage: number = (json[lang] / sum) * 100;
+      const percentageStrMax2Decimals = actualPercentage
+        .toFixed(2)
+        .replace(/\.?0+$/, '');
+      const percentage = parseFloat(percentageStrMax2Decimals);
+      return {
+        name: lang,
+        percentage,
+      };
+    });
   }
 }
