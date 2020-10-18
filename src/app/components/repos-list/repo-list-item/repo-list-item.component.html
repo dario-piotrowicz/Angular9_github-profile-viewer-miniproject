@@ -34,6 +34,9 @@
       </li>
     </ul>
   </div>
+  <p>Number of watchers: {{ repo.num_of_watchers }}</p>
+  <p>Number of stars: {{ repo.num_of_stars }}</p>
+  <p>Number of forks: {{ repo.num_of_forks }}</p>
   <p>Created at: {{ repo.created_at | date: dateFormat }}</p>
   <p>Last Pushed at: {{ repo.pushed_at | date: dateFormat }}</p>
   <p>Last Updated at: {{ repo.updated_at | date: dateFormat }}</p>

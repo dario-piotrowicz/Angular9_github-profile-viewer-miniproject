@@ -15,6 +15,7 @@ export type Repo = {
   url: string;
   id: number;
   num_of_watchers: number;
+  num_of_stars: number;
   num_of_forks: number;
   language?: string;
   languages_url?: string;

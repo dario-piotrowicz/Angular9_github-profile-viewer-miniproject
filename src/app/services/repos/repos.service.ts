@@ -28,6 +28,7 @@ export class ReposService {
       url: json.html_url,
       id: json.id,
       num_of_watchers: json.watchers_count,
+      num_of_stars: json.stargazers_count,
       num_of_forks: json.forks_count,
       size_in_KB: json.size,
     };
