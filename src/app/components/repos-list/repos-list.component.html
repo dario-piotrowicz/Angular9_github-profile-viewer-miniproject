@@ -1,9 +1,4 @@
-<h3>
-  Public Repositories{{
-    !listContainsAllrepos ? ' (100 most recently pushed to) ' : ''
-  }}:
-</h3>
 <div class="repos-list">
-  <app-repo-list-item *ngFor="let repo of repos" [repo]="repo">
+  <app-repo-list-item *ngFor="let repo of sortedRepos" [repo]="repo">
   </app-repo-list-item>
 </div>

@@ -9,8 +9,25 @@
   <p *ngIf="userData.location">location: {{ userData.location }}</p>
   <p>{{ userData.hireable ? 'hireable' : 'not-hireable' }}</p>
   <p>Number of public repos: {{ userData.num_of_public_repos }}</p>
+  <h3>
+    Public Repositories{{
+      userData.num_of_public_repos > 100
+        ? ' (100 most recently pushed to) '
+        : ''
+    }}:
+  </h3>
+  <div>
+    <label for="">Order by: </label>
+    <select [(ngModel)]="selectedReposListOrder" name="orderby">
+      <option [value]="ReposListOrderBy.PUSH_TIME" selected
+        >latest push time</option
+      >
+      <option [value]="ReposListOrderBy.UPDATE_TIME">latest update time</option>
+      <option [value]="ReposListOrderBy.CREATION_TIME">created time</option>
+    </select>
+  </div>
   <app-repos-list
     [repos]="userData.repos"
-    [listContainsAllrepos]="userData.num_of_public_repos <= 100"
+    [order]="selectedReposListOrder"
   ></app-repos-list>
 </div>
