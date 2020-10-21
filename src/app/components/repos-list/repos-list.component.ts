@@ -31,6 +31,18 @@ export class ReposListComponent implements OnChanges {
       case ReposListOrderBy.CREATION_TIME:
         return (repoA: Repo, repoB: Repo) =>
           repoB.created_at.getTime() - repoA.created_at.getTime();
+      case ReposListOrderBy.WATCHERS:
+        return (repoA: Repo, repoB: Repo) =>
+          repoB.num_of_watchers - repoA.num_of_watchers;
+      case ReposListOrderBy.STARS:
+        return (repoA: Repo, repoB: Repo) =>
+          repoB.num_of_stars - repoA.num_of_stars;
+      case ReposListOrderBy.FORKS:
+        return (repoA: Repo, repoB: Repo) =>
+          repoB.num_of_forks - repoA.num_of_forks;
+      case ReposListOrderBy.SIZE:
+        return (repoA: Repo, repoB: Repo) =>
+          repoB.size_in_KB - repoA.size_in_KB;
       default:
         return () => 0;
     }

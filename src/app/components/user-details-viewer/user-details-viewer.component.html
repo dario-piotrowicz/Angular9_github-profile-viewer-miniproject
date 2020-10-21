@@ -27,6 +27,10 @@
           >latest update time</option
         >
         <option [value]="ReposListOrderBy.CREATION_TIME">created time</option>
+        <option [value]="ReposListOrderBy.WATCHERS">watchers</option>
+        <option [value]="ReposListOrderBy.STARS">stars</option>
+        <option [value]="ReposListOrderBy.FORKS">forks</option>
+        <option [value]="ReposListOrderBy.SIZE">size</option>
       </select>
     </div>
     <app-repos-list
