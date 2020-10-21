@@ -9,7 +9,7 @@
   <p *ngIf="userData.location">location: {{ userData.location }}</p>
   <p>{{ userData.hireable ? 'hireable' : 'not-hireable' }}</p>
   <p>Number of public repos: {{ userData.num_of_public_repos }}</p>
-  <section *ngIf="userData.num_of_public_repos > 0">
+  <section class="public-repos" *ngIf="userData.num_of_public_repos > 0">
     <h3>
       Public Repositories{{
         userData.num_of_public_repos > 100
